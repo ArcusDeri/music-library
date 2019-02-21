@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MusicLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MusicLibrary
 {
@@ -26,6 +28,7 @@ namespace MusicLibrary
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<MusicLibraryContext>(opt => opt.UseSqlServer(@"Data Source=.\SQLEXPRESS01;Initial Catalog=MusicLibrary;Integrated Security=True"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
