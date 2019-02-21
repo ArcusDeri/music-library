@@ -26,7 +26,10 @@ namespace MusicLibrary.Controllers
         {
             var albums = _context
                 .Albums
-                .Include(i => i.Artists);
+                .Include(i => i.AlbumsArtists)
+                    .ThenInclude(t => t.Artist)
+                .Include(i => i.AlbumsSongs)
+                    .ThenInclude(t => t.Song);
             return albums;
         }
 
@@ -39,7 +42,13 @@ namespace MusicLibrary.Controllers
                 return BadRequest(ModelState);
             }
 
-            var albums = await _context.Albums.FindAsync(id);
+            var albums = _context
+                .Albums
+                .Where(w => w.Id == id)
+                .Include(i => i.AlbumsArtists)
+                    .ThenInclude(t => t.Artist)
+                .Include(i => i.AlbumsSongs)
+                    .ThenInclude(t => t.Song);
 
             if (albums == null)
             {
