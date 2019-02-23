@@ -1,0 +1,13 @@
+.albums-cover {
+    max-width: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+table tr {
+    text-align: center;
+}
+
+td {
+    padding: 5px;
+}

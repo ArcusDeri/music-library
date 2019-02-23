@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MusicLibrary.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cors;
 
 namespace MusicLibrary
 {
@@ -30,6 +31,7 @@ namespace MusicLibrary
             services.AddMvc()
                 .AddJsonOptions(opts => opts.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddCors();
             services.AddDbContext<MusicLibraryContext>(opt => opt.UseSqlServer(@"Data Source=.\SQLEXPRESS01;Initial Catalog=MusicLibrary;Integrated Security=True"));
         }
 
@@ -45,6 +47,7 @@ namespace MusicLibrary
                 app.UseHsts();
             }
 
+            app.UseCors(opts => opts.WithOrigins(@"http://localhost:3000").AllowAnyMethod());
             app.UseHttpsRedirection();
             app.UseMvc();
         }

@@ -24,13 +24,7 @@ namespace MusicLibrary.Controllers
         [HttpGet]
         public IEnumerable<Albums> GetAlbums()
         {
-            var albums = _context
-                .Albums
-                .Include(i => i.AlbumsArtists)
-                    .ThenInclude(t => t.Artist)
-                .Include(i => i.AlbumsSongs)
-                    .ThenInclude(t => t.Song);
-            return albums;
+            return _context.Albums;
         }
 
         // GET: api/Albums/5
