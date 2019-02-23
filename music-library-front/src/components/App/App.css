@@ -1,0 +1,17 @@
+a:active, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:-webkit-any-link {
+    color: white;
+    text-decoration: none;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    color: black;
+    font-family: Verdana, Geneva, sans-serif;
+}
