@@ -47,7 +47,7 @@ namespace MusicLibrary
                 app.UseHsts();
             }
 
-            app.UseCors(opts => opts.WithOrigins(@"http://localhost:3000").AllowAnyMethod());
+            app.UseCors(opts => opts.WithOrigins(@"http://localhost:3000").AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc();
         }

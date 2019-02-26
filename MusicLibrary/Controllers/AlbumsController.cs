@@ -101,7 +101,8 @@ namespace MusicLibrary.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            if (albums.CoverUrl.Length == 0)
+                albums.CoverUrl = null;
             _context.Albums.Add(albums);
             await _context.SaveChangesAsync();
 

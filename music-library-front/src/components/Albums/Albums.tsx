@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
+
 import { getAlbums } from '../../Api';
 import './Albums.css';
 
@@ -6,8 +8,8 @@ interface IState {
     Albums: Array<IAlbum>
 }
 
-interface IAlbum {
-    id: number,
+export interface IAlbum {
+    id?: number,
     title: string,
     year: string,
     genre: string,
@@ -29,7 +31,10 @@ class Albums extends Component<{}, IState> {
     render (){
         return (
             <Fragment>
-                <h1>Browse albums</h1>
+                <div className="list-component-header">
+                    <h1 className="list-component-title">Browse albums</h1>
+                    <button className="new-entry-button"><Link to="/albums/add" >+New Album</Link></button>
+                </div>
                 {this.state.Albums.length && 
                     <table>
                         <tbody>

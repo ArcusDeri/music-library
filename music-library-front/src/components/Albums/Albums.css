@@ -11,3 +11,29 @@ table tr {
 td {
     padding: 5px;
 }
+
+.list-component-title {
+    display: inline-block;
+}
+
+.list-component-header {
+    display: flex;
+    align-items: center;
+}
+
+.new-entry-button {
+    background-color: #2da522;
+    color: white;
+    border: none;
+    padding: 10px;
+    height: 100%;
+    margin: 0 5px;
+}
+
+.new-entry-button:hover {
+    cursor: pointer;
+}
+
+.new-entry-button:focus {
+    outline: none;
+}
