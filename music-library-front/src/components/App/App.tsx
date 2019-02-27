@@ -8,6 +8,7 @@ import NewAlbum from '../NewAlbum/NewAlbum';
 import './App.css';
 import Songs from '../Songs/Songs';
 import Artists from '../Artists/Artists';
+import AlbumInfo from '../AlbumInfo/AlbumInfo';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route exact path='/albums/add' component={NewAlbum} />
             <Route exact path='/songs' component={Songs} />
             <Route exact path='/artists' component={Artists} />
+            <Route exact path='/albums/:id' component={AlbumInfo} />
           </Switch>
         </div>
       </div>

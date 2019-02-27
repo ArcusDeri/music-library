@@ -12,6 +12,14 @@ td {
     padding: 5px;
 }
 
+td a {
+    color: black !important;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
 .list-component-title {
     display: inline-block;
 }
@@ -36,4 +44,11 @@ td {
 
 .new-entry-button:focus {
     outline: none;
+}
+
+.delete-button {
+    background-color: rgb(87, 29, 29);
+    color: white;
+    padding: 10px;
+    border: none;
 }
